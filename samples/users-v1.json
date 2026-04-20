@@ -1,0 +1,36 @@
+{
+  "requestId": "req_8a3f2c91",
+  "timestamp": "2026-04-20T08:12:44Z",
+  "status": "ok",
+  "pagination": {
+    "page": 1,
+    "pageSize": 3,
+    "total": 42
+  },
+  "users": [
+    {
+      "id": "u_001",
+      "email": "alice@example.com",
+      "name": "Alice Johnson",
+      "role": "admin",
+      "createdAt": "2024-07-12T10:04:00Z",
+      "active": true
+    },
+    {
+      "id": "u_002",
+      "email": "bob@example.com",
+      "name": "Bob Smith",
+      "role": "member",
+      "createdAt": "2024-09-03T14:21:15Z",
+      "active": true
+    },
+    {
+      "id": "u_003",
+      "email": "carol@example.com",
+      "name": "Carol Davis",
+      "role": "member",
+      "createdAt": "2025-01-18T09:30:22Z",
+      "active": false
+    }
+  ]
+}
