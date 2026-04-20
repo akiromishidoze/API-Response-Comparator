@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Response Comparator</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-head">
+      <h2>History</h2>
+      <button id="refresh-history" class="icon-btn" title="Refresh">&#x21bb;</button>
+    </div>
+    <ul id="history-list" class="history-list"></ul>
+    <div class="sidebar-foot muted">Newest first · click to load</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo"></span>
+        <h1>API Response Comparator</h1>
+      </div>
+      <div class="controls">
+        <label>
+          Format
+          <select id="format">
+            <option value="json">JSON</option>
+            <option value="xml">XML</option>
+            <option value="text">Plain text</option>
+          </select>
+        </label>
+        <label class="grow">
+          Title
+          <input id="title" type="text" placeholder="e.g. /users endpoint v1 vs v2" />
+        </label>
+        <label class="grow">
+          Ignore
+          <input id="ignore" type="text" placeholder="timestamp, id, requestId" />
+        </label>
+        <button id="compare" class="primary">Compare</button>
+      </div>
+    </header>
+
+    <section class="inputs">
+      <div class="pane">
+        <div class="pane-head">
+          <span>Left (expected / baseline)</span>
+          <div class="pane-actions">
+            <label class="file-btn">
+              Load file
+              <input type="file" id="load-left" hidden />
+            </label>
+            <button class="ghost" id="clear-left">Clear</button>
+          </div>
+        </div>
+        <textarea id="left" spellcheck="false" placeholder="Paste or load the first response…"></textarea>
+      </div>
+      <div class="pane">
+        <div class="pane-head">
+          <span>Right (actual / new)</span>
+          <div class="pane-actions">
+            <label class="file-btn">
+              Load file
+              <input type="file" id="load-right" hidden />
+            </label>
+            <button class="ghost" id="clear-right">Clear</button>
+          </div>
+        </div>
+        <textarea id="right" spellcheck="false" placeholder="Paste or load the second response…"></textarea>
+      </div>
+    </section>
+
+    <section class="result">
+      <div class="result-head">
+        <div class="summary" id="summary">
+          <span class="muted">Run a comparison to see the diff.</span>
+        </div>
+        <div class="export-group" id="export-group" hidden>
+          <button id="export-html">Export HTML</button>
+          <button id="export-pdf">Export PDF</button>
+        </div>
+      </div>
+      <div class="diff-wrap" id="diff-wrap" hidden>
+        <table class="diff" id="diff-table">
+          <colgroup>
+            <col class="ln" /><col /><col class="ln" /><col />
+          </colgroup>
+          <tbody id="diff-body"></tbody>
+        </table>
+      </div>
+      <div class="error" id="error" hidden></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
